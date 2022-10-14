@@ -160,38 +160,58 @@ void iniciar_tabuleiro(){
     add("B","Branca","g1");add("T","Branca","h1");
 }
 
+peca * i(char x, int y){
+    if(x == '1' or y == 1)return i1;
+    else if(x == '2' or y == 2)return i2;
+    else if(x == '3' or y == 3)return i3;
+    else if(x == '4' or y == 4)return i4;
+    else if(x == '5' or y == 5)return i5;
+    else if(x == '6' or y == 6)return i6;
+    else if(x == '7' or y == 7)return i7;
+    else if(x == '8' or y == 8)return i8;
+}
 
 void ver(){
     peca * aux;
-    int x = 1;
-    for(int i=0;i<8;i++){
-        if(x == 1)
-            aux = i1;
-        else if(x == 2)
-            aux = i2;
-        else if(x == 3)
-            aux = i3;
-        else if(x == 4)
-            aux = i4;
-        else if(x == 5)
-            aux = i5;
-        else if(x == 6)
-            aux = i6;
-        else if(x == 7)
-            aux = i7;
-        else if(x == 8)
-            aux = i8;
-        for(int i=0; i < 8; i++){
+    int x = 8;
+    char y = 'y';
+    for(int n=0;n<8;n++){
+        aux = i(y,x);
+        for(int n=0; n < 8; n++){
             cout << aux->get_nome()<<"  ";
             aux = aux->prox;
         }
         cout<<endl;
-        x++;
+        x--;
+    }
+}
+
+void movimento(string coord1, string coord2){
+    peca * aux = i(coord1[1], 0);
+    peca * aux2 = i(coord2[1], 0);
+
+    while(aux != NULL && aux->get_coordenada() != coord1){
+        aux = aux->prox;
+    }
+    if(aux->get_coordenada() == coord1){
+        while(aux2 != NULL && aux2->get_coordenada() != coord2){
+            aux2 = aux2->prox;
+        }
+        if(aux2->get_coordenada() == coord2){
+            if(aux2->get_nome() == "." or aux2->get_cor() != aux->get_cor()){
+                aux2->set_nome(aux->get_nome());
+                aux2->set_cor(aux->get_cor());
+                aux->set_nome(".");aux->set_cor(".");
+            }else{
+                cout << "Movimento Invalido" << endl;
+            }
+        }
     }
 }
 
 int main(){
     iniciar_tabuleiro();
+    movimento("a1","a2");
     ver();
     return 0;
 }
