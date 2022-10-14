@@ -14,7 +14,8 @@ class peca{
             this->cor = cor;
             this->coordenada = coordenada;
         }
-        peca();
+        peca(){
+        };
         string get_nome(){
             return nome;
         }
