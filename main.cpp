@@ -38,10 +38,14 @@ class peca{
         peca * ant;
 };
 
+peca * i1 = NULL;peca * i2 = NULL;peca * i3 = NULL;peca * i4 = NULL;
+peca * i5 = NULL;peca * i6 = NULL;peca * i7 = NULL;peca * i8 = NULL;
 
-peca * inicio = NULL;
-peca * fim = NULL;
-int tam = 0;
+peca * f1 = NULL;peca * f2 = NULL;peca * f3 = NULL;peca * f4 = NULL;
+peca * f5 = NULL;peca * f6 = NULL;peca * f7 = NULL;peca * f8 = NULL;
+
+int tam1 = 0;int tam2 = 0;int tam3 = 0;int tam4 = 0;
+int tam5 = 0;int tam6 = 0;int tam7 = 0;int tam8 = 0;
 
 void add(string nome, string cor, string coordenada){
     peca * novo = new(peca);
@@ -53,53 +57,111 @@ void add(string nome, string cor, string coordenada){
     novo->prox = NULL;
     novo->ant = NULL;
 
-    if(inicio == NULL){
-        inicio = novo;
-        fim = novo;
-    }else{
-        fim->prox = novo;
-        fim->ant = novo;
-        fim = novo;
+    char x = coordenada[1];
+    if(x == '1'){
+        if(i1 == NULL){
+            i1 = novo;
+            f1 = novo;
+        }else{
+            f1->prox = novo;
+            f1->ant = novo;
+            f1 = novo;
+        }
+    }else if(x == '2'){
+        if(i2 == NULL){
+            i2 = novo;
+            f2 = novo;
+        }else{
+            f2->prox = novo;
+            f2->ant = novo;
+            f2 = novo;
+        }
+    }else if(x == '3'){
+        if(i3 == NULL){
+            i3 = novo;
+            f3 = novo;
+        }else{
+            f3->prox = novo;
+            f3->ant = novo;
+            f3 = novo;
+        }
+    }else if(x == '4'){
+        if(i4 == NULL){
+            i4 = novo;
+            f4 = novo;
+        }else{
+            f4->prox = novo;
+            f4->ant = novo;
+            f4 = novo;
+        }
+    }else if(x == '5'){
+        if(i5 == NULL){
+            i5 = novo;
+            f5 = novo;
+        }else{
+            f5->prox = novo;
+            f5->ant = novo;
+            f5 = novo;
+        }
+    }else if(x == '6'){
+        if(i6 == NULL){
+            i6 = novo;
+            f6 = novo;
+        }else{
+            f6->prox = novo;
+            f6->ant = novo;
+            f6 = novo;
+        }
+    }else if(x == '7'){
+        if(i7 == NULL){
+            i7 = novo;
+            f7 = novo;
+        }else{
+            f7->prox = novo;
+            f7->ant = novo;
+            f7 = novo;
+        }
+    }else if(x == '8'){
+        if(i8 == NULL){
+            i8 = novo;
+            f8 = novo;
+        }else{
+            f8->prox = novo;
+            f8->ant = novo;
+            f8 = novo;
+        }    
     }
-    tam++;
 }
 
 void iniciar_tabuleiro(){
-    /*
-    peca t1("T","Branca","a1"), t2("T","Branca","h1");
-    peca t3("T","Preta","a8"), t4("T","Preta","h8");
+    add("T","Preta","a8");add("B","Preta","b8");add("C","Preta","c8");
+    add("D","Preta","d8");add("R","Preta","e8");add("C","Preta","f8");
+    add("B","Preta","g8");add("T","Preta","h8");
 
-    peca b1("T","Branca","b1"), b2("B","Branca","g1");
-    peca b3("B","Preta","b8"), b4("B","Preta","g8");
+    add("P","Preta","a7");add("P","Preta","b7");add("P","Preta","c7");
+    add("P","Preta","d7");add("P","Preta","e7");add("P","Preta","f7");
+    add("P","Preta","g7");add("P","Preta","h7");
 
-    peca c1("C","Branca","c1"), c2("C","Branca","f1");
-    peca c3("C","Preta","c8"), c4("C","Preta","f8");
+    add("P","Branca","a2");add("P","Branca","b2");add("P","Branca","c2");
+    add("P","Branca","d2");add("P","Branca","e2");add("P","Branca","f2");
+    add("P","Branca","g2");add("P","Branca","h2");
 
-    peca d1("D","Branca","d1"), d2("D","Preta","d8");
-
-    peca r1("R","Branca","e1"), r2("R","Preta","e8");
-
-    peca p1("P","Branca","a2"),p2("P","Branca","b2"),p3("P","Branca","c2");
-    peca p4("P","Branca","d2"),p5("P","Branca","e2"),p6("P","Branca","f2");
-    peca p7("P","Branca","g2"),p8("P","Branca","h2");
-    
-    peca p9("P","Preta","a7"),p10("P","Preta","b7");
-    peca p11("P","Preta","c7"),p12("P","Preta","d7"),p13("P","Preta","e7");
-    peca p14("P","Preta","f7"),p15("P","Preta","g7"),p16("P","Preta","h7");
-    */
+    add("T","Branca","a1");add("B","Branca","b1");add("C","Branca","c1");
+    add("D","Branca","d1");add("R","Branca","e1");add("C","Branca","f1");
+    add("B","Branca","g1");add("T","Branca","h1");
 }
 
 void ver(){
-    peca * aux = inicio;
-    while(aux != NULL){
-        cout << "peca: "<<aux->get_nome()<<endl;
+    peca * aux = i1;
+    for(int i=0; i < 8; i++){
+        
+        cout << aux->get_nome()<<"  ";
         aux = aux->prox;
     }
 }
 
 int main(){
-    add("Torre1","Branca","a1");
-    add("Torre2","Branca","h1");
+    iniciar_tabuleiro();
     ver();
     return 0;
 }
