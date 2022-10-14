@@ -44,9 +44,6 @@ peca * i5 = NULL;peca * i6 = NULL;peca * i7 = NULL;peca * i8 = NULL;
 peca * f1 = NULL;peca * f2 = NULL;peca * f3 = NULL;peca * f4 = NULL;
 peca * f5 = NULL;peca * f6 = NULL;peca * f7 = NULL;peca * f8 = NULL;
 
-int tam1 = 0;int tam2 = 0;int tam3 = 0;int tam4 = 0;
-int tam5 = 0;int tam6 = 0;int tam7 = 0;int tam8 = 0;
-
 void add(string nome, string cor, string coordenada){
     peca * novo = new(peca);
 
@@ -142,6 +139,18 @@ void iniciar_tabuleiro(){
     add("P","Preta","d7");add("P","Preta","e7");add("P","Preta","f7");
     add("P","Preta","g7");add("P","Preta","h7");
 
+    add(".",".","a6");add(".",".","b6");add(".",".","c6");add(".",".","d6");
+    add(".",".","e6");add(".",".","f6");add(".",".","g6");add(".",".","h6");
+
+    add(".",".","a5");add(".",".","b5");add(".",".","c5");add(".",".","d5");
+    add(".",".","e5");add(".",".","f5");add(".",".","g5");add(".",".","h5");
+
+    add(".",".","a4");add(".",".","b4");add(".",".","c4");add(".",".","d4");
+    add(".",".","e4");add(".",".","f4");add(".",".","g4");add(".",".","h4");
+
+    add(".",".","a3");add(".",".","b3");add(".",".","c3");add(".",".","d3");
+    add(".",".","e3");add(".",".","f3");add(".",".","g3");add(".",".","h3");
+
     add("P","Branca","a2");add("P","Branca","b2");add("P","Branca","c2");
     add("P","Branca","d2");add("P","Branca","e2");add("P","Branca","f2");
     add("P","Branca","g2");add("P","Branca","h2");
@@ -151,12 +160,33 @@ void iniciar_tabuleiro(){
     add("B","Branca","g1");add("T","Branca","h1");
 }
 
+
 void ver(){
-    peca * aux = i1;
-    for(int i=0; i < 8; i++){
-        
-        cout << aux->get_nome()<<"  ";
-        aux = aux->prox;
+    peca * aux;
+    int x = 1;
+    for(int i=0;i<8;i++){
+        if(x == 1)
+            aux = i1;
+        else if(x == 2)
+            aux = i2;
+        else if(x == 3)
+            aux = i3;
+        else if(x == 4)
+            aux = i4;
+        else if(x == 5)
+            aux = i5;
+        else if(x == 6)
+            aux = i6;
+        else if(x == 7)
+            aux = i7;
+        else if(x == 8)
+            aux = i8;
+        for(int i=0; i < 8; i++){
+            cout << aux->get_nome()<<"  ";
+            aux = aux->prox;
+        }
+        cout<<endl;
+        x++;
     }
 }
 
