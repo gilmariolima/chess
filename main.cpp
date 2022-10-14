@@ -14,9 +14,57 @@ class peca{
             this->cor = cor;
             this->coordenada = coordenada;
         }
+        peca();
+        string get_nome(){
+            return nome;
+        }
+        string get_cor(){
+            return cor;
+        }
+        string get_coordenada(){
+            return coordenada;
+        }
+        void set_nome(string novo_nome){
+            nome = novo_nome;
+        }
+        void set_cor(string nova_cor){
+            cor = nova_cor;
+        }
+        void set_coordenada(string nova_coord){
+            coordenada = nova_coord;
+        }
+        peca * prox;
+        peca * ant;
 };
 
+
+peca * inicio = NULL;
+peca * fim = NULL;
+int tam = 0;
+
+void add(string nome, string cor, string coordenada){
+    peca * novo = new(peca);
+
+    novo->set_nome(nome);
+    novo->set_cor(cor);
+    novo->set_coordenada(coordenada);
+
+    novo->prox = NULL;
+    novo->ant = NULL;
+
+    if(inicio == NULL){
+        inicio = novo;
+        fim = novo;
+    }else{
+        fim->prox = novo;
+        fim->ant = novo;
+        fim = novo;
+    }
+    tam++;
+}
+
 void iniciar_tabuleiro(){
+    /*
     peca t1("T","Branca","a1"), t2("T","Branca","h1");
     peca t3("T","Preta","a8"), t4("T","Preta","h8");
 
@@ -37,10 +85,20 @@ void iniciar_tabuleiro(){
     peca p9("P","Preta","a7"),p10("P","Preta","b7");
     peca p11("P","Preta","c7"),p12("P","Preta","d7"),p13("P","Preta","e7");
     peca p14("P","Preta","f7"),p15("P","Preta","g7"),p16("P","Preta","h7");
+    */
 }
 
-
+void ver(){
+    peca * aux = inicio;
+    while(aux != NULL){
+        cout << "peca: "<<aux->get_nome()<<endl;
+        aux = aux->prox;
+    }
+}
 
 int main(){
+    add("Torre1","Branca","a1");
+    add("Torre2","Branca","h1");
+    ver();
     return 0;
 }
